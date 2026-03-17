@@ -1,0 +1,35 @@
+\begin{table}
+\centering
+\begin{talltblr}[         %% tabularray outer open
+caption={Extended Data Table 2: Income heterogeneity robustness},
+note{}={* p \num{< 0.1}, ** p \num{< 0.05}, *** p \num{< 0.01}},
+note{ }={Clustered standard errors by country in parentheses. Countries without PPP data excluded.},
+]                     %% tabularray outer close
+{                     %% tabularray inner open
+colspec={Q[]Q[]Q[]Q[]Q[]Q[]Q[]},
+hline{2}={1-7}{solid, black, 0.05em},
+hline{10}={1-7}{solid, black, 0.05em},
+hline{1}={1-7}{solid, black, 0.08em},
+hline{18}={1-7}{solid, black, 0.08em},
+column{2-7}={}{halign=c},
+column{1}={}{halign=l},
+}                     %% tabularray inner close
+& Base & poor-yr FE & >20Yrs & >20Yrs+poor-yr FE & ContYr FE & ContYr+noTrend \\
+Temperature (b1) & \num{0.009}** & \num{0.007} & \num{0.009}* & \num{0.006} & \num{0.010}* & \num{0.015}*** \\
+& (\num{0.004}) & (\num{0.005}) & (\num{0.004}) & (\num{0.005}) & (\num{0.005}) & (\num{0.005}) \\
+Temperature sq. (b2) & \num{-0.000}* & \num{-0.000} & \num{-0.000} & \num{-0.000} & \num{-0.000} & \num{-0.000}*** \\
+& (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) \\
+Temperature x poor (b3) & \num{0.017} & \num{0.019} & \num{0.025} & \num{0.027} & \num{0.012} & \num{0.002} \\
+& (\num{0.018}) & (\num{0.018}) & (\num{0.018}) & (\num{0.019}) & (\num{0.014}) & (\num{0.014}) \\
+Temperature sq. x poor (b4) & \num{-0.000} & \num{-0.000} & \num{-0.001} & \num{-0.001} & \num{-0.000} & \num{0.000} \\
+& (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) \\
+Observations & \num{6452} & \num{6452} & \num{6345} & \num{6345} & \num{6452} & \num{6452} \\
+R squared & \num{0.291} & \num{0.299} & \num{0.284} & \num{0.293} & \num{0.372} & \num{0.270} \\
+beta1 + beta3 & \num{0.025} & \num{0.026} & \num{0.033} & \num{0.034} & \num{0.021} & \num{0.016} \\
+se(beta1 + beta3) & \num{0.017} & \num{0.018} & \num{0.018} & \num{0.018} & \num{0.013} & \num{0.012} \\
+beta2 + beta4 & \num{-0.001} & \num{-0.001} & \num{-0.001} & \num{-0.001} & \num{-0.001} & \num{-0.000} \\
+se(beta2 + beta4) & \num{0.000} & \num{0.000} & \num{0.000} & \num{0.000} & \num{0.000} & \num{0.000} \\
+Rich optimum (C) & \num{14.100} & \num{12.200} & \num{14.200} & \num{12.200} & \num{19.200} & \num{15.100} \\
+Poor optimum (C) & \num{16.500} & \num{17.200} & \num{17.800} & \num{18.300} & \num{16.200} & \num{20.600} \\
+\end{talltblr}
+\end{table}

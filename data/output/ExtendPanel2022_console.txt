@@ -1,0 +1,81 @@
+=== Loading BHM original data ===
+BHM observations: 6584 
+BHM years: 1961 - 2010 
+BHM countries: 166 
+
+=== Parsing WCD climate files ===
+  CRU temperature...
+  ERA5 temperature...
+  CRU precipitation...
+  ERA5 precipitation...
+  UDel temperature...
+  Merging climate sources...
+Climate panel: 30627 rows, 249 countries, 1900 - 2022 
+
+ISO mapping check:
+  ADO -> AND: found
+  CHI -> CHN: found
+  HKG -> HKG: NOT FOUND
+  KSV -> XKX: NOT FOUND
+  MAC -> MAC: NOT FOUND
+  ROM -> ROU: found
+  TMP -> TLS: found
+  WBG -> PSE: found
+  ZAR -> COD: found
+
+=== Validating CRU vs UDel temperature (1960-2013 overlap) ===
+Validation obs (BHM + CRU overlap): 7198 
+UDel vs CRU temp: r=0.9943, RMSE=0.860 C
+UDel vs ERA5 temp: r=0.9943, RMSE=0.810 C
+UDel vs DELA temp: r=0.9962, RMSE=0.659 C
+UDel vs CRU prec: r=0.9557, RMSE=225.5 mm/yr
+
+=== Loading World Bank GDP data ===
+WB GDP rows: 10818 
+WB countries with 2022 data: 209 
+
+=== Building extended panels ===
+Panel BHM original: 6584 obs
+Panel Extended-CRU: 8038 obs, 166 countries, 1961-2022
+Panel Extended-ERA5: 8038 obs, 166 countries, 1961-2022
+Panel Hybrid (UDel+CRU): 8038 obs, 166 countries, 1961-2022
+
+=== Running BHM baseline regressions ===
+
+==========================================================================
+BHM PANEL EXTENSION TO 2022: COMPARISON TABLE
+==========================================================================
+Specification                            N   Cty b1(temp)     se1 b2(temp2)     se2  Opt.T   ME@20
+------------------------------------------------------------------------------------------ 
+BHM original (UDel, 1960-2013)        6584   166  0.01272 0.00374  -0.000487 0.000117   13.1 -0.00677
+Extended CRU (1960-2022)              8038   166  0.01487 0.00395  -0.000504 0.000107   14.8 -0.00527
+Extended ERA5 (1960-2022)             8038   166  0.01315 0.00349  -0.000523 0.000099   12.6 -0.00777
+Hybrid UDel+CRU (1960-2022)           8038   166  0.01174 0.00351  -0.000401 0.000109   14.7 -0.00428
+------------------------------------------------------------------------------------------ 
+Notes: b1=temp coeff, b2=temp^2 coeff, Opt.T=-b1/(2*b2) optimal temp (C),
+       ME@20=marginal effect at 20C. All panels use country quad time trends + year FE,
+       cluster SE by country.
+
+Significance:
+  BHM original (UDel, 1960-2013)     : temp 0.01272***, temp2 -0.000487***
+  Extended CRU (1960-2022)           : temp 0.01487***, temp2 -0.000504***
+  Extended ERA5 (1960-2022)          : temp 0.01315***, temp2 -0.000523***
+  Hybrid UDel+CRU (1960-2022)        : temp 0.01174***, temp2 -0.000401***
+
+=== Income heterogeneity (rich vs poor) on extended panels ===
+  BHM original                       : Rich opt.T= 14.1 C, Poor opt.T= 16.5 C
+  Extended CRU                       : Rich opt.T= 13.7 C, Poor opt.T= 19.1 C
+  Extended ERA5                      : Rich opt.T= 13.9 C, Poor opt.T= 15.5 C
+  Hybrid UDel+CRU                    : Rich opt.T= 15.0 C, Poor opt.T= 16.1 C
+
+=== Saving outputs ===
+Saved extended CRU panel: 8038 rows
+Saved extended ERA5 panel: 8038 rows
+Saved regression comparison to data/output/panel_extension_results.csv
+
+=== Generating comparison figure ===
+null device 
+          1 
+Saved figure: figures/ExtendedDataFigs_Input/PanelExtension2022.pdf
+
+=== Done ===

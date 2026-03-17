@@ -1,0 +1,73 @@
+Panel: 9093 obs, 201 countries, years 1960-2013
+
+AR model: N=6850, R²=0.9969  (removes predictable temp component)
+  Lag-1 temp persistence  ρ̂ (T̄=25°C hot):   0.322
+  Lag-1 temp persistence  ρ̂ (T̄=13°C bliss): 0.331
+  Lag-1 temp persistence  ρ̂ (T̄= 5°C cold):  0.337
+  Shock obs available: 6850
+
+=== Table: Contemporaneous GDP growth models ===
+Variable                BHM quadratic   NRK state-dep   Hybrid        
+---------------------------------------------------------------------- 
+temp                      0.01199***        -         0.01406     
+                          (0.00308)                    (1014.64591)   
+temp²                   -0.00051***        -        -0.00055***  
+                          (0.00011)                    (0.00020)   
+τ (shock)                    -         0.01125***   -0.00235     
+                                         (0.00321)     (1014.64559)   
+τ × T̄                     -        -0.00097***    0.00010     
+                                         (0.00023)     (0.00043)   
+N                       6086            6086            6086          
+
+Optimal/bliss temperature: BHM=11.8°C  NRK=11.6°C  Hybrid=22.5°C
+ME @ T̄=20°C (pp/year):    BHM=-0.0083   NRK=-0.0081   Hybrid=-0.0003
+
+=== Local Projections: Cumulative GDP response to 1°C shock ===
+h     b_hot(SE)     b_bliss(SE)   b_cold(SE)    ann_hot       ann_bliss     ann_cold      N       
+------------------------------------------------------------------------------------------ 
+h=0  -0.0130(0.0036)  -0.0014(0.0018)  +0.0064(0.0023)  -0.0130  -0.0014  +0.0064  6086
+h=1  -0.0109(0.0051)  -0.0004(0.0029)  +0.0067(0.0043)  -0.0055  -0.0002  +0.0033  6083
+h=2  -0.0110(0.0069)  -0.0018(0.0040)  +0.0044(0.0059)  -0.0037  -0.0006  +0.0015  6079
+h=3  -0.0186(0.0087)  -0.0050(0.0051)  +0.0041(0.0074)  -0.0047  -0.0012  +0.0010  6068
+h=4  -0.0153(0.0099)  -0.0041(0.0059)  +0.0034(0.0086)  -0.0031  -0.0008  +0.0007  5968
+h=5  -0.0118(0.0103)  -0.0021(0.0060)  +0.0044(0.0083)  -0.0020  -0.0004  +0.0007  5868
+
+=== Level vs Growth Tests ===
+
+  Country type: hot (T̄=25)
+    h=0 (contemporaneous GDP effect):  -0.0130 pp
+    h=5 (5-yr cumulative GDP effect):  -0.0118 pp
+    Ratio β^5 / β^0:  0.91  (pure growth=6.0, level=1.0)
+    Cumul. temp IRF Σα^h:  1.904  (1=fully transitory)
+    CRR (GDP/temp):        -0.0424 pp per 1°C sustained
+    Annual-equiv trend: h=0:-0.0130  h=3:-0.0047  h=5:-0.0020 (decline→level)
+
+  Country type: bliss (T̄=13)
+    h=0 (contemporaneous GDP effect):  -0.0014 pp
+    h=5 (5-yr cumulative GDP effect):  -0.0021 pp
+    Ratio β^5 / β^0:  1.56  (pure growth=6.0, level=1.0)
+    Cumul. temp IRF Σα^h:  1.150  (1=fully transitory)
+    CRR (GDP/temp):        -0.0127 pp per 1°C sustained
+    Annual-equiv trend: h=0:-0.0014  h=3:-0.0012  h=5:-0.0004 (decline→level)
+
+  Country type: cold (T̄=5)
+    h=0 (contemporaneous GDP effect):  +0.0064 pp
+    h=5 (5-yr cumulative GDP effect):  +0.0044 pp
+    Ratio β^5 / β^0:  0.68  (pure growth=6.0, level=1.0)
+    Cumul. temp IRF Σα^h:  0.647  (1=fully transitory)
+    CRR (GDP/temp):        +0.0455 pp per 1°C sustained
+    Annual-equiv trend: h=0:+0.0064  h=3:+0.0010  h=5:+0.0007 (decline→level)
+
+=== BHM vs NRK Projected 5-Year GDP Impact (hot country, T̄=25°C) ===
+  BHM annual ME at T=25°C:    -0.0134 pp/year
+  BHM 5-yr cumulative effect: -0.0670 pp (assumes level shift each year)
+  NRK LP h=0 effect:          -0.0130 pp
+  NRK LP h=5 cumulative:      -0.0118 pp
+  NRK CRR (5yr):              -0.0424 pp per °C sustained
+
+null device 
+          1 
+Saved figures/ExtendedDataFigs_Input/NRK_LocalProjections.pdf
+Saved data/output/NRK_LP_results.csv
+
+NRK_LocalProjections.R complete.

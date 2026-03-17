@@ -1,0 +1,30 @@
+\begin{table}
+\centering
+\begin{talltblr}[         %% tabularray outer open
+caption={Extended Data Table 1: Robustness checks},
+note{}={* p \num{< 0.1}, ** p \num{< 0.05}, *** p \num{< 0.01}},
+note{ }={Clustered standard errors by country in parentheses. Precip. rescaled by 1/1000 relative to main text.},
+]                     %% tabularray outer close
+{                     %% tabularray inner open
+colspec={Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]},
+hline{2}={1-12}{solid, black, 0.05em},
+hline{10}={1-12}{solid, black, 0.05em},
+hline{1}={1-12}{solid, black, 0.08em},
+hline{13}={1-12}{solid, black, 0.08em},
+column{2-12}={}{halign=c},
+column{1}={}{halign=l},
+}                     %% tabularray inner close
+& Base & >20yrs & No oil & No US/CHN & ContYr FE & ContYr+noTrend & No YrFE & LinearTime & LDV 1lag & LDV 3lags & PWT \\
+Temp. & \num{0.013}*** & \num{0.013}*** & \num{0.013}*** & \num{0.013}*** & \num{0.014}*** & \num{0.013}*** & \num{0.010}*** & \num{0.013}*** & \num{0.009}** & \num{0.006}* & \num{0.007}* \\
+& (\num{0.004}) & (\num{0.004}) & (\num{0.004}) & (\num{0.004}) & (\num{0.004}) & (\num{0.003}) & (\num{0.004}) & (\num{0.004}) & (\num{0.004}) & (\num{0.004}) & (\num{0.004}) \\
+Temp. sq. & \num{-0.000}*** & \num{-0.001}*** & \num{-0.001}*** & \num{-0.000}*** & \num{-0.000}*** & \num{-0.000}*** & \num{-0.000}*** & \num{-0.000}*** & \num{-0.000}*** & \num{-0.000}*** & \num{-0.000}*** \\
+& (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) \\
+Precip. & \num{0.014} & \num{0.015} & \num{0.013} & \num{0.015} & \num{0.012} & \num{0.008} & \num{0.016} & \num{0.014} & \num{0.016}* & \num{0.020}** & \num{0.019}* \\
+& (\num{0.010}) & (\num{0.010}) & (\num{0.010}) & (\num{0.010}) & (\num{0.011}) & (\num{0.010}) & (\num{0.011}) & (\num{0.010}) & (\num{0.009}) & (\num{0.010}) & (\num{0.011}) \\
+Precip. sq. & \num{-0.005}* & \num{-0.005}* & \num{-0.004} & \num{-0.005}* & \num{-0.004} & \num{-0.002} & \num{-0.004}* & \num{-0.004} & \num{-0.005}** & \num{-0.005}** & \num{-0.004} \\
+& (\num{0.003}) & (\num{0.003}) & (\num{0.002}) & (\num{0.003}) & (\num{0.003}) & (\num{0.002}) & (\num{0.003}) & (\num{0.002}) & (\num{0.002}) & (\num{0.002}) & (\num{0.003}) \\
+Observations & \num{6584} & \num{6477} & \num{6090} & \num{6484} & \num{6584} & \num{6584} & \num{6584} & \num{6584} & \num{6418} & \num{6086} & \num{6627} \\
+R squared & \num{0.286} & \num{0.278} & \num{0.275} & \num{0.284} & \num{0.367} & \num{0.267} & \num{0.240} & \num{0.219} & \num{0.286} & \num{0.289} & \num{0.220} \\
+Optimum (C) & \num{13.100} & \num{13.400} & \num{12.600} & \num{13.100} & \num{14.900} & \num{17.400} & \num{12.700} & \num{13.400} & \num{11.900} & \num{10.000} & \num{9.900} \\
+\end{talltblr}
+\end{table}

@@ -1,0 +1,59 @@
+Countries with T_bar_30 computed: 148 
+  (countries with no 1960-1989 obs use NA for T_bar_30)
+
+NRK AR model: N = 6850, R² = 0.9969
+NRK shock obs: 6850 
+
+==========================================================================
+  MODEL COMPARISON: BHM baseline vs NRK and McIntosh-Schlenker variants
+==========================================================================
+
+(0) BHM BASELINE: growthWDI ~ temp + temp² + prec + prec² | FE
+    temp:   0.012718  (SE 0.003737, t = 3.403***)
+    temp²:  -0.0004871  (SE 0.0001168, t = -4.170***)
+    Optimal T: 13.1°C  |  ME @ 20°C: -0.0068 pp
+    N = 6584
+
+(a1) NRK SIMPLE SHOCK: growthWDI ~ shock_simple + shock_simple×T̄ + prec | FE
+     δ₁ (shock):       0.012319  (SE 0.003605, t = 3.417***)
+     δ₂ (shock×T̄):    -0.000961  (SE 0.000230, t = -4.174***)
+     Bliss T̄: 12.8°C  |  ME @ T̄=20°C: -0.0069 pp
+     N = 6584
+
+(a2) NRK SOPHISTICATED SHOCK (AR innovation): growthWDI ~ τ + τ×T̄ + prec | FE
+     δ₁ (shock):       0.008666  (SE 0.003037, t = 2.854***)
+     δ₂ (shock×T̄):    -0.000793  (SE 0.000219, t = -3.626***)
+     Bliss T̄: 10.9°C  |  ME @ T̄=20°C: -0.0072 pp
+     N = 6277
+
+(b) MS WITHIN: growthWDI ~ temp + (temp-T̄_full)² + prec | FE
+    β₁ (temp):        -0.000580  (SE 0.002029, t = -0.286)
+    β₃ (within_sq):   -0.0039087  (SE 0.0021450, t = -1.822*)
+    ME at dev=0:      -0.0006 pp  (ME = β₁ when T = T̄)
+    N = 6584
+
+(c) MS HYBRID: growthWDI ~ temp + temp² + (temp-T̄_full)² + prec | FE
+    β₁ (temp):        0.011775  (SE 0.003481, t = 3.382***)
+    β₂ (temp²):       -0.0004559  (SE 0.0001127, t = -4.046***)
+    β₃ (within_sq):   -0.0025294  (SE 0.0021038, t = -1.202)
+    N = 6584
+
+=== Marginal effect at various temperatures ===
+Temp      BHM         NRK-simp    NRK-AR      MS-within   MS-hybrid 
+----------------------------------------------------------------- 
+-5        0.0176      0.0171      0.0126      0.1472      0.1119    
+0         0.0127      0.0123      0.0087      0.1081      0.0821    
+5         0.0078      0.0075      0.0047      0.0690      0.0522    
+10        0.0030      0.0027      0.0007      0.0299      0.0224    
+13        0.0001      -0.0002     -0.0016     0.0065      0.0045    
+15        -0.0019     -0.0021     -0.0032     -0.0092     -0.0075   
+20        -0.0068     -0.0069     -0.0072     -0.0483     -0.0373   
+25        -0.0116     -0.0117     -0.0112     -0.0874     -0.0672   
+30        -0.0165     -0.0165     -0.0151     -0.1264     -0.0970   
+
+Note: NRK ME at T means 'marginal effect for a country with T̄_i = T degrees'
+Note: MS within ME uses world average T̄ ≈ 13.9°C for reference
+
+Saved data/output/NRK_MS_MarginalEffects.csv
+
+NRK_MS_Analysis.R complete.
